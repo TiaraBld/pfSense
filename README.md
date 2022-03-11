@@ -1,6 +1,8 @@
-# Projet Infrastructure et Logiciels
+# Projet Cloud Computing 
 
-Les fichiers pour la mise en place du projet Infrastructure et Logiciels su semestre 7
+Projet du semestre 8 
+Référente sécurité : Installation et configuration du serveur pfsense avec Vagrant
+Mise en place de règles de filtrage 
 
 ## Les pré-requis
 
@@ -25,27 +27,18 @@ Vous trouverez les reperoires/fichiers :
 
 * ./Vagrantfile : qui contient l'ensemble des déclarations pour la construction du Labs
 * scripts/install_sys.sh : mise en place des configurations de base sur toutes les VMs
-* scripts/install_bdd.sh : Mise en place de la base de données mysql 
-* scripts/install_moodle.sh : Mise en place de l'application Moodle 
-* scripts/install_myadmin.sh : Mise en place de l'application PhpMyAdmin 
-* scripts/install_web.sh : Mise en place du serveur Apache2 
-
 
 ## Description du Labs
 
 Le labs est constitué de 1 machine virtuelle Virtualbox basé sur la box fr-bull-64
 Cette machine est reliée à votre machine réelle par un réseau privé hôte via l'adresse 192.168.56.80
 
-* L'application Moodle est accéssible par l'adresse http://192.168.56.80/moodle
-* L'application PhpMyAdmin est accéssible par l'adresse http://192.168.56.80/myadmin
+* pfSense est accessible par l'adresse http://192.168.0.17
 
 ## Utilisation des commandes vagrant
 
-Télécharger la box modèle
-    ```vagrant box add chavinje/fr-bull-64```
-
-Activer une VM uniquement (srv-web par exemple)
-    ```vagrant up srv-web```
+Activer une VM uniquement (pfsense par exemple)
+    ```vagrant up pfsense```
 
 Se connecter à une VM (firewall par exemple)
     ```vagrant ssh firewall```
