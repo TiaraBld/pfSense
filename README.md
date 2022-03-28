@@ -5,7 +5,14 @@ Référente sécurité : Installation et configuration du serveur pfsense avec V
 Mise en place de règles de filtrage 
 
 ## Vagrantfile 
+Vagrant box configuration 
 
+1. ksklareski/pfsense.ce 
+2. 4 interfaces réseau sont configurées 
+    Une interface pont, sur l'hôte interface réseau eno1, avec une adresse prédéterminée (ici 192.168.0.9) 
+    Une interface pont, sur l'hôte interface réseau enp1s0, avec une adresse prédéterminée (ici 192.168.0.17) 
+    
+4. 
 ### Les ressources informatiques
 
 Pour faire fonctionner ce Labs il faut prévoir au moins 2 CPU /coeurs et 4Go de Ram (8Go est plus judicieux). L'espace disque est de l'ordre des 16 Go.
