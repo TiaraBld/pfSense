@@ -4,8 +4,7 @@ Projet du semestre 8
 Référente sécurité : Installation et configuration du serveur pfsense avec Vagrant
 Mise en place de règles de filtrage 
 
-## Les pré-requis
-Vagrantfile 
+## Vagrantfile 
 
 ### Les ressources informatiques
 
