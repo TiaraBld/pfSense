@@ -1,6 +1,7 @@
 # Projet Cloud Computing 
 
 Projet du semestre 8 
+
 Dans chaque dossier, on retrouve un vagrantfile et des fichiers de configuration. 
 On retrouve un readme pour chaque dossier 
 Avant d'effectuer les configurations suivantes, mettre les PC en mode projet. 
