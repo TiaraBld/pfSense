@@ -1,10 +1,10 @@
-# Projet Cloud Computing 
+# Projet Cloud Computing - semestre 8 
 
-Projet du semestre 8 
+L'archive intitulée livrable_1.tgz contient l'ensemble des éléments techniques qui doivent être présent ainsi que cette notice d'explication. 
 
-Dans chaque dossier, on retrouve un vagrantfile et des fichiers de configuration. 
-On retrouve un readme pour chaque dossier 
-Avant d'effectuer les configurations suivantes, mettre les PC en mode projet. 
+- Dans chaque dossier de l'archive, on retrouve un vagrantfile et des fichiers de configuration. 
+- On retrouve un readme pour chaque dossier 
+- Avant d'effectuer les configurations suivantes, mettre les PC en mode projet. 
 
 
 ## Les ressources informatiques
@@ -18,16 +18,34 @@ La virtualisation doit être activée sur le PC hôte (machine physique )
 * Oracle VM VirtualBox Extension Pack (adapté à la version de virtualbox installée précédement)
 * HashiCorp Vagrant (<https://www.vagrantup.com/>)
 
+## Schéma de notre datacenter 
+
+![image](https://user-images.githubusercontent.com/97165634/161623570-4dd1c8b1-bcb0-4a27-93d1-83b24757f348.png)
 
 ## Description du Labs
 
-Le labs est constitué de 4 machine virtuelle Virtualbox. 
-- gitea
-- zabbix 
-- pfSense
-- serveur web 
-![image](https://user-images.githubusercontent.com/97165634/161623570-4dd1c8b1-bcb0-4a27-93d1-83b24757f348.png)
+Le labs est constitué de 5 machine virtuelle Virtualbox. 
+- Gitea est accessible 
+    - à l'intérieur sur l'adresse : 192.168.0.41:3000 
+    - à l'extérieur sur l'adresse : 192.168.4.23:3000
 
+- Zabbix est accessible 
+    - à l'intérieur sur l'adresse : 192.168.0.41/zabbix 
+    - à l'extérieur sur l'adresse : 192.168.4.23:3001/zabbix
+ 
+- Moodle est accessible 
+    - à l'intérieur sur l'adresse 192.168.0.25/moodle
+    - à l'extérieur sur l'adresse 192.168.4.23:3002/moodle
+
+- phpMyAdmin est accessible 
+    - à l'intérieur sur l'adresse 192.168.0.25/phpmyadmin
+ 
+- pfSense est accessible 
+    - à l'intérieur sur l'adresse 10.10.10.1 et n'est pas accessible depuis l'extérieur 
+
+![image](https://user-images.githubusercontent.com/97165634/161625480-b9471c77-dc29-4179-98a4-bc2908d6c61a.png)
+![image](https://user-images.githubusercontent.com/97165634/161625571-3c479bf7-d202-463a-9271-1459c6b940b5.png)
+![image](https://user-images.githubusercontent.com/97165634/161625601-0853e652-817d-4f2a-9ab6-7c2e30907225.png)
 
 ## Vagrantfile 
 
