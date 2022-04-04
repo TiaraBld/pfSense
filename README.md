@@ -43,9 +43,9 @@ Le labs est constitué de 5 machine virtuelle Virtualbox.
 - pfSense est accessible 
     - à l'intérieur sur l'adresse 10.10.10.1 et n'est pas accessible depuis l'extérieur 
 
-![image](https://user-images.githubusercontent.com/97165634/161625480-b9471c77-dc29-4179-98a4-bc2908d6c61a.png)
-![image](https://user-images.githubusercontent.com/97165634/161625571-3c479bf7-d202-463a-9271-1459c6b940b5.png)
-![image](https://user-images.githubusercontent.com/97165634/161625601-0853e652-817d-4f2a-9ab6-7c2e30907225.png)
+![image](https://user-images.githubusercontent.com/97165634/161625860-8d9bb342-9488-48bd-a252-ce6c1407e00e.png)
+![image](https://user-images.githubusercontent.com/97165634/161625905-fcec8087-1fcb-44d5-aca1-5859fbd40f35.png)
+
 
 ## Vagrantfile 
 
