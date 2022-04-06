@@ -1,56 +1,53 @@
-# Projet Cloud Computing - semestre 8 
+# pfSense
 
-L'archive intitulée livrable_1.tgz contient l'ensemble des éléments techniques qui doivent être présent ainsi que cette notice d'explication. 
+## Vagrantfile
 
-- Dans chaque dossier de l'archive, on retrouve un vagrantfile et des fichiers de configuration. 
-- On retrouve un readme pour chaque dossier 
-- Avant d'effectuer les configurations suivantes, mettre les PC en mode projet. 
+Vagrant box configuration
 
+1.ksklareski/pfsense.ce
 
-## Les ressources informatiques
+2.Three network interfaces are configured : 
+  - One bridge interface (WAN), on the host eno1 network interface, with a predermined IP (here 192.168.4.23)
+  - One bridge interface (LAN), on the host enps1s0 network interface, with a predermined IP (here 10.10.10.1)
+  - One private network interface, with a predermined IP (here 192.168.56.60)
 
-Pour faire fonctionner ce Labs il faut prévoir au moins 2 CPU /coeurs et 4Go de Ram (8Go est plus judicieux). L'espace disque est de l'ordre des 16 Go.
-La virtualisation doit être activée sur le PC hôte (machine physique ) 
+3.Calls an xml file for its configuration 
 
-## Les applications obligatoires
+## files .xml 
 
-* Oracle Virtualbox (version 6.1) (<https://www.virtualbox.org/wiki/Downloads>)
-* Oracle VM VirtualBox Extension Pack (adapté à la version de virtualbox installée précédement)
-* HashiCorp Vagrant (<https://www.vagrantup.com/>)
+Vagrant file copies config.xml to the pfsense box for provisioning. 
 
-## Schéma de notre datacenter 
+To connect to pfSense : 
+ - login : vagrant
+ - password : vagrant
 
-![image](https://user-images.githubusercontent.com/97165634/161623570-4dd1c8b1-bcb0-4a27-93d1-83b24757f348.png)
+### LAN rules 
+For the moment everything is open 
 
-## Description du Labs
-
-Le labs est constitué de 5 machine virtuelle Virtualbox. 
-- Gitea est accessible 
-    - à l'intérieur sur l'adresse : 192.168.0.41:3000 
-    - à l'extérieur sur l'adresse : 192.168.4.23:3000
-
-- Zabbix est accessible 
-    - à l'intérieur sur l'adresse : 192.168.0.41/zabbix 
-    - à l'extérieur sur l'adresse : 192.168.4.23:3001/zabbix
- 
-- Moodle est accessible 
-    - à l'intérieur sur l'adresse 192.168.0.25/moodle
-    - à l'extérieur sur l'adresse 192.168.4.23:3002/moodle
-
-- phpMyAdmin est accessible 
-    - à l'intérieur sur l'adresse 192.168.0.25/phpmyadmin
- 
-- pfSense est accessible 
-    - à l'intérieur sur l'adresse 10.10.10.1 et n'est pas accessible depuis l'extérieur 
-
-![image](https://user-images.githubusercontent.com/97165634/161625860-8d9bb342-9488-48bd-a252-ce6c1407e00e.png)
-![image](https://user-images.githubusercontent.com/97165634/161625905-fcec8087-1fcb-44d5-aca1-5859fbd40f35.png)
+### WAN rules 
+- NAT access to gitea
+- NAT access to zabbix
+- NAT access to moodle 
+- NAT access to Router via ssh 
 
 
-## Vagrantfile 
+### Gateways 
+- WAN : 192.168.4.50 : Routeur Cauchy 
+- LAN : 10.10.10.2 : Routeur Local 
 
-Chaque dossier comprend un vagrantfile. 
-Pour éxécuter le vagrantfile, faire les différentes commandes ci-dessous.
+### Static Routes
+- 192.168.0.24/29 with gateway 10.10.10.2 : Route to VLAN Web 
+- 192.168.0.32/29 with gateway 10.10.10.2 : Route to VLAN Bdd 
+- 192.168.0.40/29 with gateway 10.10.10.2 : Route to VLAN Admin 
+
+### NAT rule configuration 
+- Port fowarding gitea : 192.168.4.23:3000 
+- Port fowarding zabbix : 192.168.4.23:3001
+- Port fowarding moodle : 192.168.4.23:3002 
+
+### Outbound 
+- WAN address 192.168.0.0/26 
+
 
 ## Utilisation des commandes vagrant
 
